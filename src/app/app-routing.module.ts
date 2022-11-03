@@ -5,6 +5,11 @@ import { SentimentStockComponent } from './sentiment-stock/sentiment-stock.compo
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'stock_tracker',
+    pathMatch: 'full',
+  },
+  {
     path : 'stock_tracker',
     component : HomeComponent
   },
