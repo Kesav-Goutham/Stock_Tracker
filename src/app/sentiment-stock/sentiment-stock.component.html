@@ -1,0 +1,34 @@
+
+<div class="container"  >
+    <h1>{{symbl}}</h1>
+    <ng-container *ngIf="Sentiment_info.length > 0">
+        <ng-container *ngFor="let item of Sentiment_info; let i = index">
+            <div class="grid-container">
+                <h5 class="grid-item1" style="font-size:20px ;" id="title">Month and Year : {{item.month}}/{{item.year}}</h5>
+                <h5 class="grid-item2" style="font-size: 20px; padding-left: 10px; padding-right: 20px; margin-top: 0px;  "></h5>
+                <img  style=" position: absolute; padding-right: 80px; margin-top: 100px ;" width="200px" height="50px" *ngIf="item.t === 1" src="assets/emojipng.com-7433876.png">
+                <img style="  position: absolute;padding-right: 80px; margin-top: 100px ;" width="200px" height="50px" *ngIf="item.t === -1" src="assets/Red_3D_Arrow_Down_PNG_Clipart.png">
+                <p class="grid-item3"style="padding: left 10px ;" style="margin-left: 20px ;">Change   : <span style="margin-top: 30px; font-size: 20px;" >{{item.change}}</span></p>
+                <p class="grid-item4"style="padding: left 10px "style="margin-left: 20px ;">MSPR   : <span style="margin-top: 30px; font-size: 20px;" >{{item.mspr}}</span></p>
+                <!-- <p class="grid-item5"style="padding: left 10px ;"style="margin-left: 20px ;">High price   : <span style="margin-top: 30px; font-size: 20px;" >{{item.t}}</span></p> -->
+
+               
+                                
+                              
+
+            </div>
+            
+            
+        </ng-container><br><br>
+        <button id="backBtn" class="float-right" [routerLink]="'/stock_tracker'">Back</button>
+    </ng-container> <br>
+    
+ 
+</div>
+
+
+
+
+
+
+<router-outlet></router-outlet>

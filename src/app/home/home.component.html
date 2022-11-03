@@ -1,0 +1,46 @@
+<div id='stock_box'>
+    <div id="stock_content" >
+        <div  id="align">
+            <p style="font-size: 50px ; margin-top: 1px;margin-bottom: 2px; text-align: center;">Stock Tracker</p>
+            <p style="font-size: 15px ; margin-bottom: 20px; text-align: center;">Enter the symbol of a stock to track <span style="opacity:0.5;">(i.e. AAPL, TSLA, GOOGL)</span></p>
+            <div id="input_Button_flex">
+                <input type="text" id="stockInput" [(ngModel)]="Search_symbol">
+                <button type="button" id="trackBtn" (click)="Track_btn()">Track</button>
+
+            </div>
+            
+
+        </div>
+        
+    </div>   
+</div>
+<br><br>
+<div class="container"  >
+    <ng-container *ngIf="stockInformationData.length > 0">
+        <ng-container *ngFor="let item of stockInformationData; let i = index">
+            <div class="grid-container">
+                <h5 class="grid-item1" style="font-size:20px ;" id="title">{{item.Description}}</h5>
+                <h5 class="grid-item2" style="font-size: 20px; padding-left: 10px; padding-right: 20px; margin-top: 0px;  ">{{item.Symbol}}</h5>
+                <img  style=" position: absolute; padding-right: 80px; margin-top: 100px ;" width="200px" height="50px" *ngIf="item.t === 1" src="assets/emojipng.com-7433876.png">
+                <img style="  position: absolute;padding-right: 80px; margin-top: 100px ;" width="200px" height="50px" *ngIf="item.t === -1" src="assets/Red_3D_Arrow_Down_PNG_Clipart.png">
+                <p class="grid-item3"style="padding: left 10px ;" style="margin-left: 20px ;">Current price   : <span style="margin-top: 30px; font-size: 20px;" >{{item.c | currency}}</span></p>
+                <p class="grid-item4"style="padding: left 10px "style="margin-left: 20px ;">Opening price   : <span style="margin-top: 30px; font-size: 20px;" >{{item.o | currency}}</span></p>
+                <p class="grid-item5"style="padding: left 10px ;"style="margin-left: 20px ;">High price   : <span style="margin-top: 30px; font-size: 20px;" >{{item.h | currency}}</span></p>
+                <p class="grid-item6"style="padding: left 10px ;" style="margin-left: 20px ;">Change Today   :<span style="margin-top: 30px; font-size: 20px;" >{{item.p}}</span></p>
+                <a style=" padding-left: 300px; position: absolute; font-size: 15px ;margin-top: 120px;" class="menu-logo"  [routerLink]="'/sentiment/'+item.Symbol">Sentiment Information</a>
+  <button mat-fab color="primary" (click)="closeItem(item,i)" id="close_button"><mat-icon>delete</mat-icon></button>
+  
+                            
+                                
+                              
+
+            </div>
+            
+
+        </ng-container>
+    </ng-container>
+
+ 
+
+  </div>
+<router-outlet></router-outlet>
